@@ -9,6 +9,7 @@ import static config.Init.setSettings;
 import static org.junit.Assert.assertEquals;
 
 public class TestIngredients {
+    private final MainPage mainPage = new MainPage();
     @Before
     public void setUp() {
         setSettings();
@@ -21,27 +22,18 @@ public class TestIngredients {
     @Test
     @DisplayName("Проверить, что работают переходы к разделам: «Булки» - Успешно")
     public void checkBunsTabGetsActivatedSuccessfully() {
-        MainPage mainPage = new MainPage();
-        mainPage.displayAvailableFillings();
-        mainPage.displayAvailableBuns();
         String actual = mainPage.getBunsTabClassValue();
         assertEquals("Булки", actual);
     }
     @Test
     @DisplayName("Проверить, что работают переходы к разделам: «Соусы» - Успешно")
     public void checkSaucesTabGetsActivatedSuccessfully() {
-        MainPage mainPage = new MainPage();
-        mainPage.displayAvailableFillings();
-        mainPage.displayAvailableSauces();
         String actual = mainPage.getSaucesTabClassValue();
         assertEquals("Соусы", actual);
     }
     @Test
     @DisplayName("Проверить, что работают переходы к разделам: «Начинки» - Успешно")
     public void checkFillingsTabGetsActivatedSuccessfully() {
-        MainPage mainPage = new MainPage();
-        mainPage.displayAvailableSauces();
-        mainPage.displayAvailableFillings();
         String actual = mainPage.getFillingsTabClassValue();
         assertEquals("Начинки", actual);
     }
