@@ -9,40 +9,39 @@ import static config.Init.setSettings;
 import static org.junit.Assert.assertEquals;
 
 public class TestIngredients {
+    private MainPage mainPage;
     @Before
     public void setUp() {
         setSettings();
         Selenide.open("/");
+        mainPage = new MainPage();
     }
     @After
     public void teardown() {
         WebDriverRunner.closeWebDriver();
     }
     @Test
-    @DisplayName("Проверить, что работают переходы к разделам: «Булки» - Успешно")
+    @DisplayName("Проверка, текста ссылок: «Булки» - Успешно")
     public void checkBunsTabGetsActivatedSuccessfully() {
-        MainPage mainPage = new MainPage();
+        String actual = mainPage.getBunsTabClassValue();
         mainPage.displayAvailableFillings();
         mainPage.displayAvailableBuns();
-        String actual = mainPage.getBunsTabClassValue();
         assertEquals("Булки", actual);
     }
     @Test
-    @DisplayName("Проверить, что работают переходы к разделам: «Соусы» - Успешно")
+    @DisplayName("Проверка, текста ссылок: «Соусы» - Успешно")
     public void checkSaucesTabGetsActivatedSuccessfully() {
-        MainPage mainPage = new MainPage();
+        String actual = mainPage.getSaucesTabClassValue();
         mainPage.displayAvailableFillings();
         mainPage.displayAvailableSauces();
-        String actual = mainPage.getSaucesTabClassValue();
         assertEquals("Соусы", actual);
     }
     @Test
-    @DisplayName("Проверить, что работают переходы к разделам: «Начинки» - Успешно")
+    @DisplayName("Проверка, текста ссылок: «Начинки» - Успешно")
     public void checkFillingsTabGetsActivatedSuccessfully() {
-        MainPage mainPage = new MainPage();
+        String actual = mainPage.getFillingsTabClassValue();
         mainPage.displayAvailableSauces();
         mainPage.displayAvailableFillings();
-        String actual = mainPage.getFillingsTabClassValue();
         assertEquals("Начинки", actual);
     }
 }

@@ -10,5 +10,8 @@
         <module name="Diplom_3" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Diplom_3" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
